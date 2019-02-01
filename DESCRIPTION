@@ -1,0 +1,19 @@
+Package: consultr
+Type: Package
+Title: Shiny Apps for Consulting and Tutoring
+Version: 0.1.0
+Authors@R: person("Clay", "Ford", email = "joe.clayton.ford@gmail.com",
+                  role = c("aut", "cre"))
+Maintainer: Clay Ford <joe.clayton.ford@gmail.com>
+Description: A collection of shiny apps to help quickly explain 
+     statistical concepts in a consultation or classroom setting.
+Imports: 
+    effects,
+    ggplot2,
+    lme4,
+    pwr,
+    shiny
+License: CC0
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
