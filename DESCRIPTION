@@ -8,9 +8,12 @@ Maintainer: Clay Ford <joe.clayton.ford@gmail.com>
 Description: A collection of shiny apps to help quickly explain 
      statistical concepts in a consultation or classroom setting.
 Imports: 
+    dplyr,
     effects,
     ggplot2,
     lme4,
+    magrittr,
+    mvtnorm,
     pwr,
     shiny
 License: CC0
