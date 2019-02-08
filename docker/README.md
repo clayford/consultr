@@ -17,17 +17,17 @@ docker run -d -p 80:80 somrc/consultr
 Alternatively, you can build the container locally based on the `Dockerfile` in this repository:
 
 ```
-git clone https://github.com/uvasomrc/consultr-docker.git
+git clone https://github.com/clayford/consultr.git
 ```
 
 ```
-cd consultr-docker
+cd consultr/docker
 ```
 
 ```
-docker build -t somrc/consultr .
+docker build -t consultr .
 ```
 
 ```
-docker run -d -p 80:80 somrc/consultr
+docker run -d -p 80:80 consultr
 ```
