@@ -15,6 +15,8 @@
 #' @section Available shiny apps:
 #' \describe{
 #'   \item{ci}{illustrates confidence intervals}
+#'   \item{confounding}{illustrates confounding in the context of regression modeling}
+#'   \item{correlation}{visualizes correlation via scatterplot}
 #'   \item{interactions}{visualizes the effect of continuous interactions}
 #'   \item{lme}{simulates and fits linear-mixed effect models and demonstrates random and fixed effects}
 #'   \item{nhst}{visualizes power, sample size, and Type I and II errors in the context of a one-sample proportion test}
