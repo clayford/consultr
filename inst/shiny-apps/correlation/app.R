@@ -57,6 +57,7 @@ server <- function(input, output) {
        geom_point() +
        xlim(c(-4,4)) +
        ylim(c(-4,4)) +
+       coord_fixed() +
        labs(y = "", x = "")
    })
 }
