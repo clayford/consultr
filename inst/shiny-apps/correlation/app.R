@@ -8,14 +8,16 @@
 #
 
 library(shiny)
+library(mvtnorm)
+library(ggplot2)
 
-# Define UI for application that draws a histogram
+# Define UI
 ui <- fluidPage(
-   
+
    # Application title
    titlePanel("Visualizing Correlation"),
-   
-   # Sidebar with a slider input for number of bins 
+
+   # Sidebar with a slider input for number of bins
    sidebarLayout(
       sidebarPanel(
          sliderInput("r",
@@ -24,11 +26,14 @@ ui <- fluidPage(
                      max = 1,
                      value = 0,
                      step = 0.01, ticks = FALSE),
+         actionButton("go",
+                      "New sample"),
          helpText("Correlation measures the strength of linear association. It ranges in value from -1 to 1.
-                  Drag the slider to visualize different correlations.")
-        
+                  Drag the slider to visualize different correlations. Click the 'New Sample' button to generate new data
+                  at a specified correlation.")
+
       ),
-      
+
       # Show a plot of the generated distribution
       mainPanel(
          plotOutput("corrPlot")
@@ -36,22 +41,26 @@ ui <- fluidPage(
    )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic
 server <- function(input, output) {
-  library(mvtnorm)
-  library(ggplot2)
-  
+
+  re <- reactive({
+    input$go
+    r <- input$r
+    sigma <- matrix(c(1,r,r,1), ncol=2)
+    r.out <- as.data.frame(rmvnorm(500, mean = c(0,0), sigma = sigma))
+    subset(r.out, abs(V1) < 4 & abs(V2) < 4)
+  })
+
   output$corrPlot <- renderPlot({
-      # generate bins based on input$bins from ui.R
-     r <- input$r
-     sigma <- matrix(c(1,r,r,1), ncol=2)
-     r.out <- as.data.frame(rmvnorm(500, mean = c(0,0), sigma = sigma))
-     ggplot(r.out, aes(x = V1, y = V2)) +
+     ggplot(re(), aes(x = V1, y = V2)) +
        geom_point() +
+       xlim(c(-4,4)) +
+       ylim(c(-4,4)) +
        labs(y = "", x = "")
    })
 }
 
-# Run the application 
+# Run the application
 shinyApp(ui = ui, server = server)
 
