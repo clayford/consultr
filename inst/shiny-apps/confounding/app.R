@@ -16,7 +16,7 @@ ui <- fluidPage(
       ),
       
       mainPanel(
-         helpText("This app illustrates confounding in context regression modeling. For the example given, the exposure of interest is smoking status and the outcome is diabetes. We can adjust  for any hypothesized confounders (i.e. obesity, gender, and age) in our logistic regression model statement. Use the inputs to the left to adjust for the given confounder(s), and explore the output to see how controlling for those variables impacts the estimated effect."),
+         helpText("This app illustrates confounding in the context of regression modeling. For the example given, the exposure of interest is smoking status and the outcome is diabetes. We can adjust  for any hypothesized confounders (i.e. obesity, gender, and age) in our logistic regression model statement. Use the inputs to the left to adjust for the given confounder(s), and explore the output to see how controlling for those variables impacts the estimated effect."),
          uiOutput("formula"),
          tags$hr(),
          tags$h3("Odds Ratio"),
