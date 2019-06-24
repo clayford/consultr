@@ -4,7 +4,7 @@ Title: Shiny Apps for Consulting and Tutoring
 Version: 0.1.0
 Authors@R: c(person("Clay", "Ford", email = "joe.clayton.ford@gmail.com",
                   role = c("aut", "cre")),
-            person("Nagraj", "VP", role = "aut"))
+            person("Nagraj", "VP", email = "nagraj@nagraj.net", role = "aut"))
 Maintainer: Clay Ford <joe.clayton.ford@gmail.com>
 Description: A collection of shiny apps to help quickly explain 
      statistical concepts in a consultation or classroom setting.
