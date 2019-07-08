@@ -22,4 +22,4 @@ notifications:
     on_success: change
     on_failure: always
     recipients:
-    - vpnagraj@virginia.edu
+    - jcf2d@virginia.edu
