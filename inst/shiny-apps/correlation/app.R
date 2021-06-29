@@ -1,4 +1,3 @@
-#
 # This is a Shiny web application. You can run the application by clicking
 # the 'Run App' button above.
 #
@@ -29,9 +28,9 @@ ui <- fluidPage(
          actionButton("go",
                       "New sample"),
          helpText("Correlation measures the strength of linear association. It ranges in value from -1 to 1.
-                  Drag the slider to visualize different correlations. Click the 'New Sample' button to generate new data
-                  at a specified correlation.")
-
+                  Drag the slider to visualize different correlations. Click 'New Sample' to generate new data
+                  at a specified correlation strength."),
+         includeMarkdown("correlation_equations.md")
       ),
 
       # Show a plot of the generated distribution
@@ -64,4 +63,3 @@ server <- function(input, output) {
 
 # Run the application
 shinyApp(ui = ui, server = server)
-
