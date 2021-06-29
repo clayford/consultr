@@ -16,7 +16,7 @@ ui <- fluidPage(
    # Application title
    titlePanel("Visualizing Correlation"),
 
-   # Sidebar with a slider input for number of bins
+   # Sidebar with a slider input for correlation
    sidebarLayout(
       sidebarPanel(
          sliderInput("r",
@@ -27,10 +27,7 @@ ui <- fluidPage(
                      step = 0.01, ticks = FALSE),
          actionButton("go",
                       "New sample"),
-         helpText("Correlation measures the strength of linear association. It ranges in value from -1 to 1.
-                  Drag the slider to visualize different correlations. Click 'New Sample' to generate new data
-                  at a specified correlation strength."),
-         includeMarkdown("correlation_equations.md")
+         helpText(includeMarkdown("correlation_help.md"))
       ),
 
       # Show a plot of the generated distribution
@@ -57,7 +54,8 @@ server <- function(input, output) {
        xlim(c(-4,4)) +
        ylim(c(-4,4)) +
        coord_fixed() +
-       labs(y = "", x = "")
+       labs(y = "y", x = "x",
+            title = paste("Simulated data with correlation", input$r))
    })
 }
 
