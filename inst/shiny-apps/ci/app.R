@@ -9,7 +9,7 @@
 
 library(shiny)
 
-# Define UI for application that draws a histogram
+# Define UI for application that simulates confidence intervals
 ui <- fluidPage(
 
    # Application title
@@ -19,7 +19,7 @@ ui <- fluidPage(
    sidebarLayout(
      sidebarPanel(
        sliderInput("ci",
-                     "Confidence Interval:",
+                     "Confidence level:",
                      min = 0.5,
                      max = 1,
                      value = 0.95, step = 0.01),
@@ -31,21 +31,13 @@ ui <- fluidPage(
 
       # Show a plot of the generated distribution
       mainPanel(
-        p("This app draws 100 random samples of a specified size from a Normal distribution with
-a specified mean and standard deviation, and then calculates a specified confidence interval (CI).
-It demonstrates how a CI either does or does not overlap the true value we seek to estimate.
-We call it a 'confidence' interval because we are confident in this process. For example,
-calculating 100 95% confidence intervals will result in about 95 of the intervals overlapping
-          the true value. Click the 'Generate new samples' button to see that this is more or less the case.
-          Notice also that changing the size of the sample or the parameters of the Normal distribution have
-          no effect on the process."
-          ),
+        helpText(includeMarkdown("ci_help.md")),
         plotOutput("ciPlot")
       )
    )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic required to plot confidence intervals
 server <- function(input, output) {
 
   library(magrittr)
@@ -76,4 +68,3 @@ server <- function(input, output) {
 
 # Run the application
 shinyApp(ui = ui, server = server)
-

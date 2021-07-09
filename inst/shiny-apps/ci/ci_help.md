@@ -1,0 +1,5 @@
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+This app draws 100 random samples of a specified size from a Normal distribution with a specified mean and standard deviation, and it then calculates a confidence interval (CI) around each sample mean. The app demonstrates how each CI either does (blue) or does not (red) overlap the true mean that we're looking to estimate. We call the ranges "confidence" intervals because we estimate them such that we have a particular level of confidence in the process: For example, calculating 100 95% confidence intervals will result in about 95 of the intervals overlapping the true value. Click "Generate new samples" to draw a fresh set of samples and calculate their CIs. Notice also that changing the size of the sample or the parameters of the Normal distribution while holding the confidence level constant does not affect the probability that the CIs capture the true mean.
