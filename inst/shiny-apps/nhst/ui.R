@@ -3,7 +3,7 @@
 # run the application by clicking 'Run App' above.
 #
 # Find out more about building applications with Shiny here:
-# 
+#
 #    http://shiny.rstudio.com/
 #
 
@@ -11,42 +11,39 @@ library(shiny)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
-  
+
   # Application title
-  titlePanel("Visualizing a one-sample proportion hypothesis test"),
-  
-  # Sidebar with a slider input for number of bins 
+  titlePanel("Visualizing Power in a One-sample Proportion Hypothesis Test"),
+
+  # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
-       numericInput("sampleSize", "Sample Size:", value = 30),
+       numericInput("sampleSize", "Sample size:", value = 30),
        sliderInput("nullP",
-                   "Null Probability:",
+                   "Null probability:",
                    min = 0,
                    max = 1,
                    value = 0.5),
        sliderInput("altP",
-                   "Alternate Probability:",
+                   "Alternate probability:",
                    min = 0,
                    max = 1,
                    value = 0.75),
        sliderInput("sigLevel",
-                   "Significance Level:",
+                   "Significance level:",
                    min = 0,
                    max = 0.2,
                    value = 0.05),
       checkboxInput("twoSided",
-                    "Two-sided", 
+                    "Two-sided",
                     value = FALSE),
-      helpText("This app shows how sample size, effect size, and significance level affect power in 
-                a one-sample proportion test. Effect size is the difference between the null and 
-               alternative probabilities. The default alternative is greater/less than depending
-               on if the alternative is greater or less than the null. Check the two-sided option
-              to see how power is affected by the more conservative two-sided alternative.")
+      helpText(includeMarkdown('nhst_help.md'))
     ),
-    
+
     # Show a plot of the generated distribution
     mainPanel(
-       plotOutput("powerPlot", height = "600px")
+      plotOutput("powerPlot", height = "600px"),
+      helpText(includeMarkdown('nhst_main_panel_help.md'))
     )
   )
 ))
