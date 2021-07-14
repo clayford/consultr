@@ -25,7 +25,7 @@ ui <- fluidPage(
                      value = 0.95, step = 0.01),
        sliderInput("n","Sample size:", min = 10, max = 1000, value = 30, step = 1),
        sliderInput("mean","True mean:", min = -20, max = 20, value = 3, step = 0.1),
-       sliderInput("sd","True SD:", min = 1, max = 10, value = 0.5, step = 0.1),
+       sliderInput("sd","True SD:", min = 1, max = 10, value = 1, step = 0.1),
        actionButton("gen","Generate new samples")
       ),
 
