@@ -1,0 +1,5 @@
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+Example: Let's say you're a web developer, and you're interested in three possible website designs for a client. You want to know which design helps users find information fastest, or which design requires the most time. You design an experiment where you have three groups of randomly selected people use one of the three designs to find some piece of information on the website, and you record how long it takes. (All groups look for the same information.) How many people do you need in each group to detect a significant difference in seeking time if you believe that two of the designs will take 30 seconds and one will take 25 seconds? Assume that the population standard deviation in seeking time is five seconds and that you want power and significance levels of 0.8 and 0.05, respectively. Calculate the standard deviation of the three times (2.89), and enter that value in the 'Between-group standard deviation' field. Enter five in the 'Within-group standard deviation' field, and set number of groups to three.
