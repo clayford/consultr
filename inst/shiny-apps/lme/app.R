@@ -24,17 +24,17 @@ ui <- fluidPage(
         h3("Random Effects"),
         conditionalPanel(
           condition = "input.type == 'ri' | input.type == 'ris'",
-          sliderInput("d1", "Intercept Std.Dev.", min = 0.1, max = 5, value = 0, step = 0.1)
+          sliderInput("d1", "Intercept Std.Dev.", min = 0.1, max = 5, value = 0.1, step = 0.1)
         ),
         conditionalPanel(
           condition = "input.type == 'rs' | input.type == 'ris'",
-          sliderInput("d2", "Slope Std.Dev.", min = 0.1, max = 5, value = 0, step = 0.1)
+          sliderInput("d2", "Slope Std.Dev.", min = 0.1, max = 5, value = 0.1, step = 0.1)
         ),
         conditionalPanel(
           condition = "input.type == 'ris'",
           sliderInput("cor", "Intercept and Slope correlation", min = -1, max = 1, value = 0, step = 0.1)
         ),
-        sliderInput("r","Residuals:",min = 0.01,max = 5,value = 0,step=0.1),
+        sliderInput("r","Residuals:", min = 0.01, max = 5, value = 0.01, step = 0.1),
         actionButton(inputId = "gen", "Generate new data")
 
       ),
