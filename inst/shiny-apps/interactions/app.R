@@ -7,7 +7,6 @@
 #    http://shiny.rstudio.com/
 #
 
-
 library(shiny)
 
 # Define UI for application that draws a histogram
@@ -48,20 +47,7 @@ ui <- fluidPage(
       ),
 
       # Show a plot of the generated distribution
-      mainPanel(
-        p("When the app is initialized a random data set of predictors is loaded. X1 and X2 are both 100 random draws
-from a N(5,1) distribution. X1 and X2 do not change while the app is in use. Each time a slider is moved,
-a new response (y) is generated using the predictors and their associated coefficients as follows:"),
-        p("y = β₀ + β₁*X1 +β₂*X2 +β₃*X1*X2 + N(0,σ)"),
-        p("Think of the slider values as the “true” model and the summary output as the attempt to recover the
-          true values."),
-        p("The plot shows the relationship between X1 and y at 4 different values of X2. When there is no
-          interaction (ie, β₃ = 0), the lines should all have roughly the same slope. It doesn’t matter what
-          value X2 takes, the relationship between X1 and y remains the same. However when there is non-zero
-          interaction, the relationship between X1 and y will depend on X2. Adjusting the sliders allows one
-          to explore how the relationship between X1 and y changes given various magnitudes and
-          directions (positive or negative) of the coefficients. See if you can guess in what ways
-          the relationships will change as you adjust the coefficients."),
+      mainPanel(includeMarkdown("interactions_help.md"),
          plotOutput("distPlot"),
          verbatimTextOutput("summary")
       )
@@ -83,7 +69,6 @@ server <- function(input, output) {
                       mod <- lm(y ~ X1*X2, data = dat)
                       })
 
-
    output$distPlot <- renderPlot({
      e.out <- as.data.frame(Effect(c("X1","X2"), mod = runmod(), xlevels=list(X2=4)))
      ggplot(e.out, aes(x = X1, y = fit)) +
@@ -97,4 +82,3 @@ server <- function(input, output) {
 
 # Run the application
 shinyApp(ui = ui, server = server)
-
