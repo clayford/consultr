@@ -2,37 +2,36 @@
 % Please edit documentation in R/runShinyApp.R
 \name{runShinyApp}
 \alias{runShinyApp}
-\title{Run consultr shiny app}
+\title{Run consultr Shiny app}
 \usage{
 runShinyApp(app)
 }
 \arguments{
-\item{app}{The name of the shiny app to run as a character string. For
+\item{app}{The name of the Shiny app to run as a character string. For
 example, \code{app = 'ci'}. Submitting the function while leaving this argument blank
-returns a list of available shiny apps, albeit as an error message.}
+returns a list of available Shiny apps, albeit as an error message.}
 }
 \value{
-Opens the requested shiny app in RStudio or a web browser, depending
+Opens the requested Shiny app in RStudio or a web browser, depending
   on your setup.
 }
 \description{
-\code{runShinyApp} runs the specified shiny app.
+\code{runShinyApp} runs the specified Shiny app.
 }
 \details{
 This function is basically a copy of the function in Dean Attali's blog post,
 \emph{Supplementing your R package with a Shiny app}:
 \url{https://deanattali.com/2015/04/21/r-package-shiny-app/}.
 }
-\section{Available shiny apps}{
+\section{Available Shiny apps}{
 
 \describe{
   \item{ci}{illustrates confidence intervals}
-  \item{confounding}{illustrates confounding in the context of regression modeling}
   \item{correlation}{visualizes correlation via scatterplot}
   \item{interactions}{visualizes the effect of continuous interactions}
-  \item{lme}{simulates and fits linear-mixed effect models and demonstrates random and fixed effects}
+  \item{lme}{simulates and fits linear mixed-effects models and demonstrates random and fixed effects}
   \item{nhst}{visualizes power, sample size, and Type I and II errors in the context of a one-sample proportion test}
-  \item{passa}{runs power and sample size analyses for one- and two-sample proportion and t-tests as well as one-way ANOVAs}
+  \item{passa}{runs power and sample size analyses for one- and two-sample proportion tests, t-tests, and one-way ANOVAs}
 }
 }
 
